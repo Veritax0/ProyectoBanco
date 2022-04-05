@@ -82,6 +82,26 @@ public class Controlador extends HttpServlet {
             p.setValorPrestamo(valorPrestamo);
             p.setNroCuotas(nroCuotas);
             dao.add(p);
+            acceso = listar;
+        }else if(action.equalsIgnoreCase("editar")){
+            request.setAttribute("idper", request.getParameter("id"));
+            acceso = edit;
+        }else if(action.equalsIgnoreCase("Actualizar")){
+            
+            int id = Integer.parseInt(request.getParameter("txtId"));
+            String nombre = request.getParameter("txtNombre");
+            String apellido = request.getParameter("txtApellido");
+            int nroCuenta = Integer.parseInt(request.getParameter("txtNroCuenta"));
+            int valorPrestamo = Integer.parseInt(request.getParameter("txtValorPrestamo"));
+            int nroCuotas = Integer.parseInt(request.getParameter("txtdNroCuotas"));
+            p.setId(id);
+            p.setNombre(nombre);
+            p.setApellido(apellido);
+            p.setNroCuenta(nroCuenta);
+            p.setValorPrestamo(valorPrestamo);
+            p.setNroCuotas(nroCuotas);
+            dao.edit(p);
+            acceso=listar;
         }
         RequestDispatcher vista = request.getRequestDispatcher(acceso);
         vista.forward(request, response);

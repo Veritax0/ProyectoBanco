@@ -46,7 +46,23 @@ public class ClienteDAO implements CRUD{
 
     @Override
     public Cliente list(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String sql = "select * from clientes where Id="+id;
+        try {
+            con = cn.getConnection();
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while(rs.next()){
+            p.setId(rs.getInt("Id"));
+            p.setNombre(rs.getString("Nombre"));
+            p.setApellido(rs.getString("Apellido"));
+            p.setNroCuenta(rs.getInt("NroCuenta"));
+            p.setValorPrestamo(rs.getInt("ValorPrestamo"));
+            p.setNroCuotas(rs.getInt("nroCuotas"));
+            }
+        } catch (Exception e) {
+        }
+        return p;
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
@@ -64,7 +80,15 @@ public class ClienteDAO implements CRUD{
 
     @Override
     public boolean edit(Cliente per) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String sql = "update persona set Id='"+per.getId()+"',Nombre='"+per.getNombre()+"',Apellido='"+per.getApellido()+"',NroCuenta='"+per.getNroCuenta()+"',ValorPrestamo='"+per.getValorPrestamo()+"',nroCuotas='"+per.getNroCuotas()+"'where Id="+per.getId() ;
+        try {
+            con=cn.getConnection();
+            ps = con.prepareStatement(sql);
+            ps.executeUpdate();
+        } catch (Exception e) {
+        }
+        return false;
+//throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override

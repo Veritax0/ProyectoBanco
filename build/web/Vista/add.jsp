@@ -23,6 +23,7 @@
             Numero de cuotas:
             <input type="number" name="txtNroCuotas">
             <input type="submit" name="accion" value="Agregar">
+            <a href="Controlador?accion=listar">Regresar</a>
             
         </form>
     </body>
