@@ -51,7 +51,15 @@ public class ClienteDAO implements CRUD{
 
     @Override
     public boolean add(Cliente per) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String sql = "insert into clientes values('"+per.getId()+"','"+per.getNombre()+"','"+per.getApellido()+"','"+per.getNroCuenta()+"','"+per.getValorPrestamo()+"','"+per.getNroCuotas()+"')" ;
+        try {
+           con = cn.getConnection();
+           ps = con.prepareStatement(sql);
+           ps.executeUpdate();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return false;
     }
 
     @Override

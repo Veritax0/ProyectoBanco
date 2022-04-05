@@ -12,6 +12,7 @@
     </head>
     <body>
         <h1>Personas</h1>
+        <a href="Controlador?accion=add">Agregar Nuevo</a>
         <table border="1">
             <thead>
                 <tr>

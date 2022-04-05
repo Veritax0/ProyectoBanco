@@ -4,6 +4,8 @@
  */
 package Controlador;
 
+import Modelo.Cliente;
+import ModeloDao.ClienteDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
@@ -20,6 +22,8 @@ public class Controlador extends HttpServlet {
     String listar = "vista/listar.jsp";
     String add = "vista/add.jsp";
     String edit = "vista/edit.jsp";
+    Cliente p = new Cliente();
+    ClienteDAO dao = new ClienteDAO();
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -62,6 +66,22 @@ public class Controlador extends HttpServlet {
         String action = request.getParameter("accion");
         if (action.equalsIgnoreCase("listar")){
             acceso = listar;
+        }else if(action.equalsIgnoreCase("add")){
+            acceso = add;
+        }else if(action.equalsIgnoreCase("Agregar")){
+            int id = Integer.parseInt(request.getParameter("txtId"));
+            String nombre = request.getParameter("txtNombre");
+            String apellido = request.getParameter("txtApellido");
+            int nroCuenta = Integer.parseInt(request.getParameter("txtNroCuenta"));
+            int valorPrestamo = Integer.parseInt(request.getParameter("txtValorPrestamo"));
+            int nroCuotas = Integer.parseInt(request.getParameter("txtdNroCuotas"));
+            p.setId(id);
+            p.setNombre(nombre);
+            p.setApellido(apellido);
+            p.setNroCuenta(nroCuenta);
+            p.setValorPrestamo(valorPrestamo);
+            p.setNroCuotas(nroCuotas);
+            dao.add(p);
         }
         RequestDispatcher vista = request.getRequestDispatcher(acceso);
         vista.forward(request, response);
