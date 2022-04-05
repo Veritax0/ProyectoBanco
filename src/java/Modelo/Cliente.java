@@ -15,6 +15,7 @@ public class Cliente {
     private int nroCuenta;
     private int valorPrestamo;
     private int nroCuotas;
+    private float cobroMensual;
     
     public Cliente(){   
     }
@@ -26,6 +27,7 @@ public class Cliente {
         this.nroCuenta = nroCuenta;
         this.valorPrestamo = valorPrestamo;
         this.nroCuotas = nroCuotas;
+        this.cobroMensual = (int) (valorPrestamo*(Math.pow(2.1, nroCuotas))) ;
     }
 
     public int getId() {
@@ -75,6 +77,15 @@ public class Cliente {
     public void setNroCuotas(int nroCuotas) {
         this.nroCuotas = nroCuotas;
     }
+
+    public float getCobroMensual() {
+        return cobroMensual;
+    }
+
+    public void setCobroMensual() {
+        this.cobroMensual = (int) (valorPrestamo*(Math.pow(2.1, nroCuotas))) ;
+    }
+    
     
     
     

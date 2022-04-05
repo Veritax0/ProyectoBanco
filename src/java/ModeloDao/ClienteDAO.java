@@ -37,6 +37,7 @@ public class ClienteDAO implements CRUD{
             per.setNroCuenta(rs.getInt("NroCuenta"));
             per.setValorPrestamo(rs.getInt("ValorPrestamo"));
             per.setNroCuotas(rs.getInt("nroCuotas"));
+            per.setCobroMensual();
             list.add(per);
             }
         } catch (Exception e) {
@@ -58,6 +59,7 @@ public class ClienteDAO implements CRUD{
             p.setNroCuenta(rs.getInt("NroCuenta"));
             p.setValorPrestamo(rs.getInt("ValorPrestamo"));
             p.setNroCuotas(rs.getInt("nroCuotas"));
+            p.setCobroMensual();
             }
         } catch (Exception e) {
         }
@@ -67,7 +69,7 @@ public class ClienteDAO implements CRUD{
 
     @Override
     public boolean add(Cliente per) {
-        String sql = "insert into clientes values('"+per.getId()+"','"+per.getNombre()+"','"+per.getApellido()+"','"+per.getNroCuenta()+"','"+per.getValorPrestamo()+"','"+per.getNroCuotas()+"')" ;
+        String sql = "insert into clientes values('"+per.getId()+"','"+per.getNombre()+"','"+per.getApellido()+"','"+per.getNroCuenta()+"','"+per.getValorPrestamo()+"','"+per.getNroCuotas()+"','"+per.getCobroMensual()+"')" ;
         try {
            con = cn.getConnection();
            ps = con.prepareStatement(sql);

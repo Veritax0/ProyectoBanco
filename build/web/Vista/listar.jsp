@@ -22,6 +22,7 @@
                     <th>NroCuenta</th>
                     <th>Valor del prestamo</th>
                     <th>nroCuotas</th>
+                    <th>CobroMensual</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
@@ -42,6 +43,7 @@
                     <td><%= per.getNroCuenta()%></td>
                     <td><%= per.getValorPrestamo()%></td>
                     <td><%= per.getNroCuotas()%></td>
+                    <td><%= per.getCobroMensual()%></td>
                     <td>
                         <a href="Controlador?accion=editar&id=<%= per.getId()%>">Editar</a>
                         <a>Remover</a>
