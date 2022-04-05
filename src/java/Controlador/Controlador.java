@@ -1,6 +1,7 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
+   Version 3.0
  */
 package Controlador;
 
@@ -24,6 +25,7 @@ public class Controlador extends HttpServlet {
     String edit = "vista/edit.jsp";
     Cliente p = new Cliente();
     ClienteDAO dao = new ClienteDAO();
+    int id;
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -69,7 +71,7 @@ public class Controlador extends HttpServlet {
         }else if(action.equalsIgnoreCase("add")){
             acceso = add;
         }else if(action.equalsIgnoreCase("Agregar")){
-            int id = Integer.parseInt(request.getParameter("txtId"));
+            id = Integer.parseInt(request.getParameter("txtId"));
             String nombre = request.getParameter("txtNombre");
             String apellido = request.getParameter("txtApellido");
             int nroCuenta = Integer.parseInt(request.getParameter("txtNroCuenta"));
@@ -88,7 +90,7 @@ public class Controlador extends HttpServlet {
             acceso = edit;
         }else if(action.equalsIgnoreCase("Actualizar")){
             
-            int id = Integer.parseInt(request.getParameter("txtId"));
+            id = Integer.parseInt(request.getParameter("txtId"));
             String nombre = request.getParameter("txtNombre");
             String apellido = request.getParameter("txtApellido");
             int nroCuenta = Integer.parseInt(request.getParameter("txtNroCuenta"));
@@ -102,6 +104,11 @@ public class Controlador extends HttpServlet {
             p.setNroCuotas(nroCuotas);
             dao.edit(p);
             acceso=listar;
+        }else if(action.equalsIgnoreCase("eliminar")){
+            id = Integer.parseInt(request.getParameter("id"));
+            p.setId(id);
+            dao.delete(id);
+            acceso = listar;
         }
         RequestDispatcher vista = request.getRequestDispatcher(acceso);
         vista.forward(request, response);

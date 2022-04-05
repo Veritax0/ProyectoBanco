@@ -46,7 +46,7 @@
                     <td><%= per.getCobroMensual()%></td>
                     <td>
                         <a href="Controlador?accion=editar&id=<%= per.getId()%>">Editar</a>
-                        <a>Remover</a>
+                        <a href="Controlador?accion=eliminar&id=<%= per.getId()%>">Remover</a>
                     </td>
                 </tr>
                 <%}%>
