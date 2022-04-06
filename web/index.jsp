@@ -4,11 +4,16 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Banco JuanchoCarrancho</title>
+        <link href="./css/bootstrap.css" rel="stylesheet" type="text/css" />
     </head>
     <body>
-        <div>
-            <a href="Controlador?accion=listar">Listar Persona</a>
+        <br>
+        <h1 class="display-1">Banco JuanchoCarrancho</h1>
+        <br>
+        <br>
+        <div class="container">
+            <a class="btn btn-success btn-lg" href="Controlador?accion=listar">Listar Clientes</a>
         </div>
     </body>
 </html>
