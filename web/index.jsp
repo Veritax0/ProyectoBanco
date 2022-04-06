@@ -8,11 +8,11 @@
         <link href="./css/bootstrap.css" rel="stylesheet" type="text/css" />
     </head>
     <body>
-        <br>
-        <h1 class="display-1">Banco JuanchoCarrancho</h1>
+        
         <br>
         <br>
         <div class="container">
+            <h1 class="display-1">Banco JuanchoCarrancho</h1>
             <a class="btn btn-success btn-lg" href="Controlador?accion=listar">Listar Clientes</a>
         </div>
     </body>
