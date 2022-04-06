@@ -20,9 +20,9 @@ import javax.servlet.http.HttpServletResponse;
  * @author MY_PC
  */
 public class Controlador extends HttpServlet {
-    String listar = "vista/listar.jsp";
-    String add = "vista/add.jsp";
-    String edit = "vista/edit.jsp";
+    String listar = "Vista/listar.jsp";
+    String add = "Vista/add.jsp";
+    String edit = "Vista/edit.jsp";
     Cliente p = new Cliente();
     ClienteDAO dao = new ClienteDAO();
     int id;
@@ -65,6 +65,18 @@ public class Controlador extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String acceso = "";
+        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet Controlador</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet Controlador at " + request.getContextPath() + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
+        }
         String action = request.getParameter("accion");
         if (action.equalsIgnoreCase("listar")){
             acceso = listar;
